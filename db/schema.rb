@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714155346) do
+ActiveRecord::Schema.define(version: 20160714211610) do
 
   create_table "assignments_and_tests", force: :cascade do |t|
     t.string   "assignment_date"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 20160714155346) do
     t.date     "expiration_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "cohorts", force: :cascade do |t|
+    t.date   "start_date"
+    t.date   "end_date"
+    t.string "name"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "cohort_id"
+    t.integer "assignments_and_tests_id"
+    t.string  "p_cookie"
+    t.text    "review_txt"
+    t.integer "rating"
+    t.integer "doItFIt"
   end
 
 end
