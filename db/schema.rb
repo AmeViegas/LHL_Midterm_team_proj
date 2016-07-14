@@ -11,6 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160714155346) do
+
+  create_table "assignments_and_tests", force: :cascade do |t|
+    t.string   "assignment_date"
+    t.string   "name"
+    t.date     "expiration_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

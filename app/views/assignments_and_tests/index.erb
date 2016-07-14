@@ -1,0 +1,10 @@
+<h1>All Assignments and Tests</h1>
+<hr/>
+
+<% @assignments_and_tests.each do |a| %>
+  <div class="message">
+    <h3>
+      <a><%= a.assignment_date  %>:<%=  a.name %></a>
+    </h3>
+  </div>
+<% end %>
