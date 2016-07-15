@@ -1,10 +1,18 @@
-<h1>All Assignments and Tests</h1>
-<hr/>
-
-<% @assignments_and_tests.each do |a| %>
-<div class="message">
-  <h3>
-    <%= a.assignment_date  %>:<a href="/assignments_and_tests/<% a.id %>"><%=  a.name %></a>    
-  </h3>
+<% rand = Random.new(123) %>
+<div>
+    <h1 style="
+      background-color: #77537d;
+      color: white;
+      text-align: center;
+      margin-top: 0px;" >All Assignments and Tests</h1>
+    <!-- <hr/> -->
 </div>
-<% end %>
+  <% @assignments_and_tests.each do |a| %>
+    <div class="rate" style="display: inline-block">
+      <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
+      <p style="font-size: 20px"><%= a.assignment_date %>:<a href="/assignments_and_tests/<% a.id %>"><%=  a.name %></a>    
+      </p>
+    </div>
+  <% end %>
+</div>
+
