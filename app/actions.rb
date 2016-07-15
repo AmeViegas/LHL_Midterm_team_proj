@@ -4,6 +4,7 @@ get '/' do
 end
 
 get '/assignments_and_tests' do
+  @line_chart = Gchart.meter(:data => [0.5])#, :label => "50%")
   @assignments_and_tests = AssignmentsAndTests.all
   erb :'assignments_and_tests/index'
 end
