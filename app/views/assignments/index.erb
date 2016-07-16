@@ -1,27 +1,25 @@
 <% rand = Random.new(123) %>
-<div>
-  <h1 style="
-    background-color: #4a6470;
-    color: #deaf2b;
-    text-align: center;
-    margin-top: 0px;" ><%= @assignment_date %>'s Assignments and Tests</h1>
-  <hr/>
-</div>
+<div id="assignments-index">
+  <header>
+    <h1><%= @assignment_date %>'s Assignments and Tests</h1>
+    <hr/>
+  </header>
 
-<div class="container-fluid">
-  <div class="row"> 
-  <% @assignments.each do |a| %>
-    <div class="col-md-4">
-      <div class="rate" style="
-        display: flex;
-        align-items: center;
-        font-size: 20px">
-      <p>
-        <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
-        <a href="/assignments/<%= a.id %>"><%= a.name %></a>   
-      </p>
+  <div class="container-fluid">
+    <div class="row"> 
+    <% @assignments.each do |a| %>
+      <div class="col-md-4">
+        <div class="rate" style="
+          display: flex;
+          align-items: center;
+          font-size: 20px">
+        <p>
+          <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
+          <a href="/assignments/<%= a.id %>"><%= a.name %></a>   
+        </p>
+        </div>
       </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
 </div>
