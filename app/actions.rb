@@ -10,6 +10,15 @@ get '/assignments_and_tests' do
 end
 
 get '/assignments_and_tests/:id' do
-  @assignments_and_tests = AssignmentsAndTests.find_by(id: params[:id])
+  @reviews = Reviews.where(assignments_and_tests_id: params[:id])
+  @assignments_and_tests = AssignmentsAndTests.find_by(params[:id])
   erb :'assignments_and_tests/show'
+end
+
+get '/build_json' do
+  if request.xhr?
+    @reviews.reviews.to_json
+  else
+    erb :index
+  end
 end

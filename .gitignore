@@ -10,6 +10,9 @@
 /test/version_tmp/
 /tmp/
 /db/development.sqlite3
+/tux for db
+
+
 
 # Used by dotenv library to load environment variables.
 # .env
