@@ -10,7 +10,7 @@
 
 <div class="container-fluid">
   <div class="row"> 
-  <% @assignments_and_tests.each do |a| %>
+  <% @assignments.each do |a| %>
     <div class="col-md-4">
       <div class="rate" style="
         display: flex;
@@ -18,7 +18,7 @@
         font-size: 20px">
       <p>
         <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
-        <a href="/assignments_and_tests/<%= a.id %>"><%= a.name %></a>   
+        <a href="/assignments/<%= a.id %>"><%= a.name %></a>   
       </p>
       </div>
     </div>

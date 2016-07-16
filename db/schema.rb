@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160716174558) do
+ActiveRecord::Schema.define(version: 20160716175529) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "assignment_date"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160716174558) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "cohort_id"
-    t.integer "assignments_and_tests_id"
+    t.integer "assignment_id"
     t.string  "p_cookie"
     t.text    "review_txt"
     t.integer "rating"
