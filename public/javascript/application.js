@@ -9,10 +9,10 @@ $(document).ready(function() {
         var options = {
           width: 500,
           height: 100,
-          redFrom: 0,
-          redTo: 25,
-          greenFrom: 75,
-          greenTo: 100,
+          redFrom: 75,
+          redTo: 100,
+          greenFrom: 0,
+          greenTo: 25,
         };
 
       function drawCharts() {

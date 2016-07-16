@@ -10,4 +10,4 @@ class AssignmentsAndTests < ActiveRecord::Migration
   end
 end
 
-# AssignmentsAndTests.create assignment_date: "W1D1", name: "Development Machine Setup", expiration_date: 9999-12-31
+# Assignment.create assignment_date: "W1D1", name: "Development Machine Setup", expiration_date: 9999-12-31

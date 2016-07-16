@@ -1,4 +1,4 @@
-class AssignmentsAndTests < ActiveRecord::Base
+class Assignment < ActiveRecord::Base
 
 
 end
