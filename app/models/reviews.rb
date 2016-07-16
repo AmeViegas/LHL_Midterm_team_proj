@@ -1,3 +1,3 @@
 class Reviews < ActiveRecord::Base
-  belongs_to :assignments_and_tests
+  belongs_to :assignment
 end
