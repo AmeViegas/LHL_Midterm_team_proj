@@ -3,11 +3,21 @@ get '/' do
   erb :index
 end
 
-#default page W1D1
 get '/assignments' do
-  @assignment_date = params[:assignment_date]
+  @assignment_date = params[:assignment_date].upcase
   @assignments = Assignment.where(assignment_date: @assignment_date)
-  erb :'assignments/index'
+  if @assignments.empty?
+    erb :'assignments/error'
+    # redirect '/'
+  else
+    erb :'assignments/index'
+  end
+end
+
+get 'assignments/error' do
+  erb :'assignments/error'
+  @assignment_date = params[:assignment_date].upcase
+  @assignments = Assignment.where(assignment_date: @assignment_date)
 end
 
 get '/assignments/:id' do

@@ -1,27 +1,33 @@
 <% rand = Random.new(123) %>
-<div id="assignments-index">
-  <header>
-    <h1><%= @assignment_date %>'s Assignments and Tests</h1>
-    <hr/>
-  </header>
 
-  <div class="container-fluid">
-    <div class="row">
+<header>
+  <h1><%= @assignment_date %>'s Assignments and Tests</h1>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
     <% @assignments.each do |a| %>
-      <div class="col-md-4">
-        <div class="rate" style="
-          display: flex;
-          align-items: center;
-          font-size: 20px">
-        <p>
-          <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
-          <a href="/assignments/<%= a.id %>"><%= a.name %></a>
-        </p>
-        </div>
-      </div>
-    <% end %>
+    <div class="col-md-4">
+      <div class="rate" style="
+      display: flex;
+      align-items: center;
+      font-size: 20px">
+      <p>
+        <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
+        <a href="/assignments/<%= a.id %>"><%= a.name %></a>
+      </p>
     </div>
   </div>
+  <% end %>
+</div>
+<div id="reselect-button">
+  <form class="form-inline" method="get" action="/assignments">
+    <div class="form-group">
+      <label id="search_assignment" for="search-assignments">Search Assignments</label>
+      <input type="text" class="form-control" placeholder="Which Day? (ie W1D1)" name="assignment_date">
+    </div>
+    <button type="submit" class="btn btn-danger">GET !</button>
+  </form>
 </div>
 
 <script src="/javascript/g_graph.js"></script>
