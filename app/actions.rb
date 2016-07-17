@@ -21,7 +21,7 @@ get 'assignments/error' do
 end
 
 get '/assignments/:id' do
-  @reviews = Reviews.where(assignment_id: params[:id])
+  @reviews = Review.where(assignment_id: params[:id])
   @assignment = Assignment.find_by(id: params[:id])
   erb :'assignments/show'
 end
