@@ -8,7 +8,6 @@ get '/assignments' do
   @assignments = Assignment.where(assignment_date: @assignment_date)
   if @assignments.empty?
     erb :'assignments/error'
-    # redirect '/'
   else
     erb :'assignments/index'
   end
@@ -33,3 +32,4 @@ get '/build_json' do
     erb :index
   end
 end
+

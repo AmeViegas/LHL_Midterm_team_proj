@@ -1,4 +1,4 @@
-<% rand = Random.new(123) %>
+
 
 <header>
   <h1><%= @assignment_date %>'s Assignments and Tests</h1>
@@ -13,7 +13,7 @@
       align-items: center;
       font-size: 20px">
       <p>
-        <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
+        <figure data-avg-rate="<%= a.average_rating %>"></figure>
         <a href="/assignments/<%= a.id %>"><%= a.name %></a>
       </p>
     </div>
