@@ -1,10 +1,27 @@
 body {
-  background-color: #eeeeee
+  background-color: #719139
 }
 
-#assignments-index header h1 {
-  background-color: #4a6470;
-  color: #deaf2b;
+h1 {
+  background-color: #7CB0DE;
+  color: #004d99;
   text-align: center;
   margin-top: 0px;
+}
+
+a {
+  color: #004d99
+}
+
+#homepage {
+  text-align: center;
+}
+
+#search_assignment {
+  font-size: 20px;
+}
+
+#reselect-button {
+  margin-top: 100px;
+  margin-left: 20px;
 }
