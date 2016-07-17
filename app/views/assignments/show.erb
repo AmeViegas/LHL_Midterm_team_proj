@@ -2,44 +2,35 @@
 <hr/>
 <div id="container"></div>
 
+<div class="container-fluid">
+  <div class="row panel panel-default reviewLayout" >
+    <div class="col-md-2 panel-heading panel-title">
+      Cohort
+    </div>
+    <div class="col-md-6 panel-heading panel-title">
+      Review
+    </div>
+    <div class="col-md-2 panel-heading panel-title">
+      Rating
+    </div>
+    <div class="col-md-2 panel-heading panel-title">
+      Do it or F*** it?
+    </div>
 
-<!-- this is going to have a form section at some point maybe. -->
-
-<!-- javascript to build reviews on page  -->
-<script id="review-template" type="text/x-handlebars-template">
-  {{#each review}}
-  <h2>
-    {{cohort_id}} - {{rating}} - {{doItFIt}}
-  </a>
-</h2>
-<p>{{review_txt}}</p>
-{{/each}}
-</script>
-
-<script>
-   var source = $("#review-template").html();
-   var template = Handlebars.compile(source);
-   $(document).ready(function(){
-      $.get('/build_json').
-      done(function(result){
-         var data = JSON.parse(result);
-         var $container = $('#container');
-         var html = template({reviews: data});
-         $container.html(html);
-      }).
-      fail(function(error)){
-        console.error(error);
-      });
-   });
-
-</script>
-
-<!-- <%  @reviews.each do |review| %>
-<form action="test" >
-<p> <%=review.cohort_id %> </p>
-<p> <%=review.assignments_and_tests_id %> </p>
-<p> <%=review.p_cookie %> </p>
-<p> <%=review.review_txt %> </p>
-<p> <%=review.rating %> </p>
-<p> <%=review.doItFIt %> </p>
-<% end %> --> -->
+    <!-- this is going to have a form section at some point maybe. -->
+    <% @reviews.each do |review| %>
+    <div class="col-md-2 panel-body">
+      <p> <%= review.cohort_id %> </p>
+    </div>
+    <div class="col-md-6 panel-body">
+      <p> <%=review.review_txt %> </p>
+    </div>
+    <div class="col-md-2 panel-body">
+      <p> <%=review.rating %> </p>
+    </div>
+    <div class="col-md-2 panel-body">
+      <p> <%=review.doItFIt %> </p>
+    </div>
+  </div>
+  <% end %>
+</div>

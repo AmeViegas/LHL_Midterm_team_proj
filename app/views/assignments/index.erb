@@ -6,7 +6,7 @@
   </header>
 
   <div class="container-fluid">
-    <div class="row"> 
+    <div class="row">
     <% @assignments.each do |a| %>
       <div class="col-md-4">
         <div class="rate" style="
@@ -15,7 +15,7 @@
           font-size: 20px">
         <p>
           <figure data-avg-rate="<%= rand.rand(100) %>"></figure>
-          <a href="/assignments/<%= a.id %>"><%= a.name %></a>   
+          <a href="/assignments/<%= a.id %>"><%= a.name %></a>
         </p>
         </div>
       </div>
@@ -23,3 +23,5 @@
     </div>
   </div>
 </div>
+
+<script src="/javascript/g_graph.js"></script>
