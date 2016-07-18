@@ -14,7 +14,7 @@
       font-size: 20px">
       <p>
         <figure data-avg-rate="<%= a.average_rating %>"></figure>
-        <a href="/assignments/<%= a.id %>"><%= a.name %></a>
+        <a href="/assg/<%= a.id %>"><%= a.name %></a>
       </p>
     </div>
   </div>
@@ -23,7 +23,7 @@
 <div id="reselect-button">
   <form class="form-inline" method="get" action="/assignments">
     <div class="form-group">
-      <label id="search_assignment" for="search-assignments">Search Assignments</label>
+      <label id="big-text" for="search-assignments">Search Assignments</label>
       <input type="text" class="form-control" placeholder="Which Day? (ie W1D1)" name="assignment_date">
     </div>
     <button type="submit" class="btn btn-danger">GET !</button>
