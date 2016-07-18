@@ -1,36 +1,106 @@
-<h1> Review Page for <%=@assignment.name %> </h1>
+<h1> Reviews Page for <%=@assignment.name %> </h1>
 
-<div id="container"></div>
+<div id="reviews">
 
-<div class="container-fluid">
-  <div class="row panel panel-default reviewLayout" >
-    <div class="col-md-2 panel-heading panel-title">
-      Cohort
-    </div>
-    <div class="col-md-6 panel-heading panel-title">
-      Review
-    </div>
-    <div class="col-md-2 panel-heading panel-title">
-      Rating
-    </div>
-    <div class="col-md-2 panel-heading panel-title">
-      Do it or F*** it?
-    </div>
+  <div class="container-fluid">
+    <div class="row panel panel-default reviewLayout" >
 
-    <!-- this is going to have a form section at some point maybe. -->
+      <div class="col-md-2 panel-heading panel-title ">
+        Cohort
+      </div>
+      <div class="col-md-6 panel-heading panel-title">
+        Review
+      </div>
+      <div class="col-md-2 panel-heading panel-title">
+        Rating
+      </div>
+      <div class="col-md-2 panel-heading panel-title">
+        Do it or F*** it?
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid row reviewLayout">
+
     <% @reviews.each do |review| %>
-    <div class="col-md-2 panel-body">
-      <p> <%= review.cohort_id %> </p>
+    <div class="col-md-2  panel-body">
+      <p> <%= review.cohort_group %> </p>
     </div>
     <div class="col-md-6 panel-body">
       <p> <%=review.review_txt %> </p>
     </div>
     <div class="col-md-2 panel-body">
-      <p> <%=review.rating %> </p>
+      <p>
+        <% case review.rating
+        when "1" %>
+        <div class="imgWrap">
+          <img src="/images/ps1sm.png">
+          <p class="imgDescription">Easy Breezy</p>
+        </div>
+
+        <% when 2 %>
+        <div class="imgWrap">
+          <img src="/images/ps2sm.png">
+          <p class="imgDescription">Some work</p>
+        </div>
+
+        <% when 3 %>
+        <div class="imgWrap">
+          <img src="/images/ps3sm.png">
+          <p class="imgDescription">Not too horrid</p>
+        </div>
+
+        <% when 4 %>
+        <div class="imgWrap">
+          <img src="/images/ps4sm.png">
+          <p class="imgDescription">Getting there</p>
+        </div>
+
+        <% when 5 %>
+        <div class="imgWrap">
+          <img src="/images/ps5sm.png">
+          <p class="imgDescription">Ah,the pain</p>
+        </div>
+
+        <% when 6 %>
+        <div class="imgWrap">
+          <img src="/images/ps6sm.png">
+          <p class="imgDescription">Kill me now!</p>
+        </div>
+        <% end %>
+      </p>
     </div>
     <div class="col-md-2 panel-body">
-      <p> <%=review.doItFIt %> </p>
+      <p>
+        <% case review.doItFIt
+        when 0 %>
+          <i class="fa fa-hand-peace-o fa-5x" aria-hidden="true"></i>
+        <% when 1 %>
+          <i class="fa fa-thumbs-up fa-5x" aria-hidden="true"></i>
+        <% when 2 %>
+            <i class="fa fa-thumbs-down fa-5x" aria-hidden="true"></i>
+        <% end %>
+      </p>
     </div>
   </div>
+
   <% end %>
+
+</div>
+
+
+<div id="reselect-button" class="form-inline">
+  <form  class="pull-left" method="get" action="/assignments">
+    <div class="form-group">
+      <label id="big-text" for="search-assignments">Search Assignments</label>
+      <input type="text" class="form-control" placeholder="Which Day? (ie W1D1)" name="assignment_date">
+    </div>
+    <button type="submit" class="btn btn-danger">GET !</button>
+  </form>
+
+  <form class="pull-right shifty-right" method="get" action="/review">
+    <div class="form-group">
+      <input type="hidden" class="form-control"  name="id" value=<%=@assignment.id %>>
+    </div>
+    <button type="submit" class="btn btn-danger">Review Me!</button>
+  </form>
 </div>

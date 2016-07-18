@@ -3,6 +3,7 @@ get '/' do
   erb :index
 end
 
+
 get '/assignments' do
   @assignment_date = params[:assignment_date].upcase
   @assignments = Assignment.where(assignment_date: @assignment_date)
@@ -18,18 +19,28 @@ get 'assignments/error' do
   @assignment_date = params[:assignment_date].upcase
   @assignments = Assignment.where(assignment_date: @assignment_date)
 end
-
-get '/assignments/:id' do
+get '/assg/:id' do
   @reviews = Review.where(assignment_id: params[:id])
   @assignment = Assignment.find_by(id: params[:id])
   erb :'assignments/show'
 end
 
-get '/build_json' do
-  if request.xhr?
-    @reviews.reviews.to_json
-  else
-    erb :index
-  end
+get '/review' do
+  @assignment = Assignment.find_by(id: params[:id])
+  erb :'assignments/review'
 end
 
+post '/review' do
+  @review = Review.new(
+  assignment_id:   params[:assignment_id],
+  cohort_id:       params[:cohort_id],
+  review_txt:      params[:review_txt],
+  rating:          params[:rating],
+  doItFIt:         params[:doItFIt]
+   )
+  if @review.save
+    redirect "/assg/#{params[:assignment_id]}"
+  else
+    erb :'/review'
+  end
+end

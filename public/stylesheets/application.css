@@ -9,6 +9,7 @@ h1 {
   margin-top: 0px;
 }
 
+
 a {
   color: #004d99
 }
@@ -17,11 +18,72 @@ a {
   text-align: center;
 }
 
-#search_assignment {
+#big-text {
   font-size: 20px;
 }
 
-#reselect-button {
+ #reselect-button {
   margin-top: 100px;
   margin-left: 20px;
+}
+.need-some-space {
+margin-top: 40px;
+
+}
+
+#review-me{
+  margin-top: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+#reviews{
+  background-color: #719139
+
+}
+
+
+.form-control{
+  width: 80%
+}
+.shifty-right {
+  margin-right: 200px;
+}
+
+.imgWrap {
+  position: relative;
+  height: 50px;
+  width: 50px;
+}
+
+.imgDescription {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+
+  visibility: hidden;
+  opacity: 0;
+
+  -webkit-transition: visibility opacity 0.2s;
+}
+
+
+.imgWrap:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+label > input{ /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
 }
